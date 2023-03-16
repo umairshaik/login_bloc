@@ -13,7 +13,7 @@ class LoginScreen extends StatelessWidget {
       child: Column(children: [
         emailField(bloc),
         passwordField(bloc),
-        submitButton(),
+        submitButton(bloc),
       ]),
     );
   }
@@ -50,13 +50,18 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Widget submitButton() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: ElevatedButton(
-        onPressed: () {},
-        child: const Text("Login"),
-      ),
+  Widget submitButton(Bloc block) {
+    return StreamBuilder(
+      stream: block.submitValid,
+      builder: (context, snapshot) {
+        return Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: ElevatedButton(
+            onPressed: snapshot.hasData ? block.submit : null,
+            child: const Text("Login"),
+          ),
+        );
+      },
     );
   }
 }
