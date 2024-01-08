@@ -14,3 +14,9 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Logic behind the app
+![img.png](img.png)
+
+# Email logical flow using stream
+![img_1.png](img_1.png) 
