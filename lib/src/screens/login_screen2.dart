@@ -71,10 +71,8 @@ class SubmitButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final LoginScreenBloc bloc = LoginScreenProvider.of(context);
     return StreamBuilder(
-        stream: bloc.validateSubmit,
+        stream: bloc.submitValid,
         builder: (context, snapshot) {
-          print('error ${snapshot.hasError}');
-          print('has data ${snapshot.hasData}');
           return ElevatedButton(
               onPressed: snapshot.hasData ? bloc.submit : null,
               child: const Text(
